@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: vigor
+      POSTGRES_PASSWORD: vigor123
+      POSTGRES_DB: vigor_ayurveda
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgresql://vigor:vigor123@db:5432/vigor_ayurveda?schema=public
+      JWT_SECRET: dev-jwt-secret
+      REFRESH_SECRET: dev-refresh-secret
+      RAZORPAY_KEY_ID: rzp_test_xxxxxxxxxx
+      RAZORPAY_KEY_SECRET: test_secret
+      CORS_ORIGIN: http://localhost:5173
+      NODE_ENV: development
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
