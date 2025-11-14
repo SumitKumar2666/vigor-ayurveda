@@ -11,6 +11,7 @@
     "url": "git+https://github.com/SumitKumar2666/vigor-ayurveda.git"
   },
   "scripts": {
+    "install:all": "pnpm --filter \"./apps/**\" install",
     "dev": "pnpm --parallel --filter \"./apps/**\" dev",
     "build": "pnpm --filter \"./apps/**\" build",
     "lint": "pnpm --recursive lint",
