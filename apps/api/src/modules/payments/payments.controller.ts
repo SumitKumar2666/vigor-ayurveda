@@ -10,7 +10,7 @@ export class PaymentsController {
   @Post('razorpay/order')
   @UseGuards(JwtAuthGuard)
   createOrder(@Body('orderId') orderId: string, @Req() req: Request) {
-    return this.paymentsService.createRazorpayOrder(orderId, req.user['id']);
+    return this.paymentsService.createRazorpayOrder(orderId, req.user['_id']);
   }
 
   @Post('razorpay/verify')

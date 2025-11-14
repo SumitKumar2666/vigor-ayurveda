@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-export const Home = () => {
+export default function Home() {
   return (
     <div>
       <section className="bg-gradient-to-br from-orange-50 to-amber-50 py-20">
@@ -14,7 +14,7 @@ export const Home = () => {
           </p>
           <Link 
             to="/shop" 
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-90"
+            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-700"
           >
             Shop Stacks <ArrowRight />
           </Link>
@@ -67,4 +67,4 @@ export const Home = () => {
       </section>
     </div>
   );
-};
+}
