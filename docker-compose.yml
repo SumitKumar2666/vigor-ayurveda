@@ -1,16 +1,18 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres:16-alpine
+  mongodb:
+    image: mongo:7
     environment:
-      POSTGRES_USER: vigor
-      POSTGRES_PASSWORD: vigor123
-      POSTGRES_DB: vigor_ayurveda
+      MONGO_INITDB_ROOT_USERNAME: vigor
+      MONGO_INITDB_ROOT_PASSWORD: vigor123
+      MONGO_INITDB_DATABASE: vigor_ayurveda
     ports:
-      - "5432:5432"
+      - "27017:27017"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mongodb_data:/data/db
+    networks:
+      - vigor-network
 
   api:
     build:
@@ -19,15 +21,22 @@ services:
     ports:
       - "3001:3001"
     environment:
-      DATABASE_URL: postgresql://vigor:vigor123@db:5432/vigor_ayurveda?schema=public
+      MONGODB_URI: mongodb://vigor:vigor123@mongodb:27017/vigor_ayurveda?authSource=admin
       JWT_SECRET: dev-jwt-secret
       REFRESH_SECRET: dev-refresh-secret
       RAZORPAY_KEY_ID: rzp_test_xxxxxxxxxx
       RAZORPAY_KEY_SECRET: test_secret
       CORS_ORIGIN: http://localhost:5173
+      FRONTEND_URL: http://localhost:5173
       NODE_ENV: development
     depends_on:
-      - db
+      - mongodb
+    networks:
+      - vigor-network
 
 volumes:
-  postgres_data:
+  mongodb_data:
+
+networks:
+  vigor-network:
+    driver: bridge

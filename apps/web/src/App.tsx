@@ -1,15 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Home } from './routes/Home';
-import { Shop } from './routes/Shop';
-import { ProductDetail } from './routes/ProductDetail';
-import { Cart } from './routes/Cart';
-import { Checkout } from './routes/Checkout';
-import { Account } from './routes/Account';
-import { Learn } from './routes/Learn';
-import { Contact } from './routes/Contact';
-import { Legal } from './routes/Legal';
+import Home from './routes/Home';
+import Shop from './routes/Shop';
+import ProductDetail from './routes/ProductDetail';
+import Cart from './routes/Cart';
+import Checkout from './routes/Checkout';
+import Account from './routes/Account';
+import Admin from './routes/Admin';
 
 function App() {
   return (
@@ -22,10 +20,8 @@ function App() {
           <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/account/*" element={<Account />} />
-          <Route path="/learn/*" element={<Learn />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/legal/:page" element={<Legal />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
