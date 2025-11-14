@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuthStore } from '../store/auth';
-import { api } from '../lib/api';
+import api from '../lib/api';
 
 interface Order {
   _id: string;

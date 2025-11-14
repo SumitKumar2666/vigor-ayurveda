@@ -1,11 +1,12 @@
 import { create } from 'zustand';
 import api, { setAccessToken } from '../lib/api';
 
-interface User {
+export interface User {
   id: string;
   email: string;
   name: string;
   role: string;
+  phone?: string;
 }
 
 interface AuthStore {

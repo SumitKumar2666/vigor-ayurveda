@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { api } from '../lib/api';
+import api from '../lib/api';
 import { useCartStore } from '../store/cart';
 
 export default function Shop() {
@@ -16,7 +16,7 @@ export default function Shop() {
     if (category) params.append('category', category);
     if (search) params.append('search', search);
 
-    api.get(`/products?${params}`).then((res) => setProducts(res.data));
+    api.get(`/products?${params}`).then((res: any) => setProducts(res.data));
   }, [searchParams]);
 
   return (
