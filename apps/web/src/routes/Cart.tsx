@@ -36,7 +36,7 @@ export default function Cart() {
             {items.map((item) => (
               <div key={item._id} className="flex gap-4 bg-white p-4 rounded-lg shadow">
                 <img
-                  src={item.images[0] || '/placeholder-product.jpg'}
+                  src={item.images?.[0] || item.image || '/placeholder-product.jpg'}
                   alt={item.title}
                   className="w-24 h-24 object-cover rounded"
                 />

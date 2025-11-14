@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/auth';
-import { api } from '../lib/api';
+import api from '../lib/api';
 
 interface DashboardStats {
   totalProducts: number;

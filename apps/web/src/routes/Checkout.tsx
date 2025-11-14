@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartStore } from '../store/cart';
 import { useAuthStore } from '../store/auth';
-import { api } from '../lib/api';
+import api from '../lib/api';
 
 interface ShippingAddress {
   name: string;

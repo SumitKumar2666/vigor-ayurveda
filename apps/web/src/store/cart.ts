@@ -1,18 +1,22 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface CartItem {
+export interface CartItem {
+  _id: string;
   id: string;
   title: string;
   price: number;
   quantity: number;
   image: string;
+  images?: string[];
 }
 
 interface CartStore {
   items: CartItem[];
   addItem: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
   removeItem: (id: string) => void;
+  removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
   total: () => number;
@@ -34,7 +38,9 @@ export const useCartStore = create<CartStore>()(
           set({ items: [...get().items, { ...item, quantity: 1 }] });
         }
       },
+      addToCart: (item) => get().addItem(item),
       removeItem: (id) => set({ items: get().items.filter((i) => i.id !== id) }),
+      removeFromCart: (id) => get().removeItem(id),
       updateQuantity: (id, quantity) => {
         if (quantity <= 0) {
           get().removeItem(id);

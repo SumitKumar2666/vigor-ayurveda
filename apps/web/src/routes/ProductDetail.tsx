@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCartStore } from '../store/cart';
-import { api } from '../lib/api';
+import api from '../lib/api';
 
 interface Product {
   _id: string;
@@ -47,7 +47,14 @@ export default function ProductDetail() {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart({ ...product, quantity });
+      addToCart({
+        _id: product._id,
+        id: product._id,
+        title: product.title,
+        price: product.price,
+        image: product.images[0] || '',
+        images: product.images
+      });
       navigate('/cart');
     }
   };
