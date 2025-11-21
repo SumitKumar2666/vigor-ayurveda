@@ -10,23 +10,25 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3",
-    "axios": "^1.6.5",
-    "zustand": "^4.5.0",
-    "react-hook-form": "^7.49.3",
-    "zod": "^3.22.4",
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-toast": "^1.1.5",
     "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-toast": "^1.1.5",
+    "axios": "^1.6.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "lucide-react": "^0.307.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
+    "react-router-dom": "^6.21.3",
     "tailwind-merge": "^2.2.0",
-    "lucide-react": "^0.307.0"
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.41.0",
+    "@types/node": "^24.10.1",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
@@ -34,8 +36,7 @@
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.11",
-    "vitest": "^1.2.0",
-    "@playwright/test": "^1.41.0"
+    "vite": "^5.4.21",
+    "vitest": "^1.2.0"
   }
 }
